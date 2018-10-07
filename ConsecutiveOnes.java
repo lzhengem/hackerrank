@@ -48,6 +48,19 @@ public class ConsecutiveOnes {
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
         scanner.close();
+        
+        //do a bitwise shift to the left one time
+        //then use bitwise AND between n and n<<1
+        //the consecutive ones in the number will end up in the bitwise AND
+        //count how many times you can shift. the number of times that you
+        //are able to shift the ones over is the number of how many consecutive ones there are
+        int count = 0;        
+        while (n != 0) {
+        	count++;
+        	n = (n & (n <<1));
+        	//System.out.println("n is now " + n);
+        }
+        System.out.println(count);
     }
 }
 
